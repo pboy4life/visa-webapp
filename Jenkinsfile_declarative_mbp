@@ -1,0 +1,89 @@
+pipeline {
+  agent any 
+  tools {
+    maven "maven3.8.6"
+  }  
+  stages {
+    stage('1CloneCode'){
+      steps{
+        sh "echo 'Cloning the latest application version'"
+        git credentialsId: 'GitHubCredentials', url: 'https://github.com/pboy4life/visa-webapp'
+      }
+    }
+    stage('2Test+Build'){
+      steps{
+        sh "echo 'Running JUnit-test-cases'"
+        sh "echo 'Testing must pass in order to create artifacts '"
+        sh "mvn clean package"
+      }
+    }
+    /*
+    stage('3CodeQuality'){
+      steps{
+        sh "echo 'Perfoming Code Quality Analysis'"
+        sh "mvn sonar:sonar"
+      }
+    }
+    stage('4UploadtoNexus'){
+      steps{
+        sh "echo 'Uploading artifacts to Nexus'"
+        sh "mvn deploy"
+      }
+    }
+    stage('5Deploy2UAT'){
+      steps{
+        sh "echo 'Deploying application to UAT for Client Approval'"
+        deploy adapters: [tomcat9(credentialsId: 'TomcatCredentials', path: '', url: 'http://35.182.62.144:8080/')], contextPath: null, war: 'target/*war' 
+      }     
+    }
+    stage('6ApprovalGate'){
+      steps{
+        sh "echo 'Visa-webapp is Ready for review'"
+        timeout(time:10, unit:'HOURS'){
+        input message: 'Visa-webapp is ready for deployment, Please review and approve'
+        }      
+      }
+    }
+    stage('7Deploy2Prod'){
+      steps{
+        sh "sleep 30"
+        sh "echo 'Deploying application to Production'"
+        deploy adapters: [tomcat9(credentialsId: 'TomcatCredentials', path: '', url: 'http://35.182.62.144:8080/')], contextPath: null, war: 'target/*war' 
+      }     
+    }
+  }
+  post {
+    always{
+      emailext body: '''Hello Team,
+
+Kindly check the Build status for compliance and functionality.
+
+Regards,
+
+Damian,
+Director, Rella\'s Technovation.''', recipientProviders: [contributor(), developers(), requestor()], subject: 'Build Status', to: 'visawebapp@gmail.com'
+    }
+    success{
+      emailext body: '''Hello Team,
+
+The visa-webapp project was a huge success. Good job.
+Triple bonus and pay raise for every employee effective immediately. 
+
+Regards,
+
+Bubba,
+CFO, Rella\'s Technovation.''', recipientProviders: [contributor(), developers(), requestor()], subject: 'Success', to: 'visawebapp@gmail.com'
+    } 
+    failure{
+      emailext body: '''Hello Dev Team,
+
+The most recent build failed. Kindly resolve issues and revert.
+
+Regards,
+
+Dimitrov,
+SMA, Rella\'s Technovation.''', recipientProviders: [contributor(), developers(), requestor()], subject: 'Failure', to: 'visawebapp@gmail.com'
+    }
+}
+*/
+} 
