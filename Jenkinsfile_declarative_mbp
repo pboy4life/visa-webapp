@@ -17,7 +17,8 @@ pipeline {
         sh "mvn clean package"
       }
     }
-    /*
+    
+   /*
     stage('3CodeQuality'){
       steps{
         sh "echo 'Perfoming Code Quality Analysis'"
@@ -86,4 +87,5 @@ SMA, Rella\'s Technovation.''', recipientProviders: [contributor(), developers()
     }
 }
 */
+
 } 
