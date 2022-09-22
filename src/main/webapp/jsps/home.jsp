@@ -9,10 +9,9 @@
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to Landmark Tesla Project.</h1>
-<h1 align="center">We are developing and supporting quality  Software Solutions to millions of clients.
-	           We are raising over millionaires in IT.
-	We offer  Training for DevOps with Linux and Cloud equipping IT Engineers for best performance.</h1>
+<h1 align="center">CLIENT IS SATISFIED. ALL TESTS PASSED AND DULY APPROVED</h1>
+<h1 align="center">The Visa-Webapp Project has now been successfully deployed to Production.
+	            Good job Team Champions..Welldone.</h1>
 <hr>
 <br>
 	<h1><h3> Server Side IP Address </h3><br>
