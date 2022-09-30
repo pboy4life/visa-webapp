@@ -96,13 +96,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Releases Nexus Repository</name>
-	      <url>http://35.183.144.17:8255/royalsdown/repository/visa-fe-releases/</url>
+	      <url>http://172.31.2.191:8255/royalsdown/repository/visa-fe-releases/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Snapshot Nexus Repository </name>
-	      <url>http://35.183.144.17:8255/royalsdown/repository/visa-fe-snapshots/</url>
+	      <url>http://172.31.2.191:8255/royalsdown/repository/visa-fe-snapshots/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
