@@ -17,8 +17,6 @@ pipeline {
         sh "mvn clean package"
       }
     }
-   } 
-   /*
     stage('3CodeQuality'){
       steps{
         sh "echo 'Perfoming Code Quality Analysis'"
@@ -34,7 +32,7 @@ pipeline {
     stage('5Deploy2UAT'){
       steps{
         sh "echo 'Deploying application to UAT for Client Approval'"
-        deploy adapters: [tomcat9(credentialsId: 'TomcatCredentials', path: '', url: 'http://35.182.62.144:8080/')], contextPath: null, war: 'target/*war' 
+        deploy adapters: [tomcat9(credentialsId: 'tomcatcredentials', path: '', url: 'http://99.79.70.63:8080/')], contextPath: null, war: 'target/*war' 
       }     
     }
     stage('6ApprovalGate'){
@@ -49,7 +47,7 @@ pipeline {
       steps{
         sh "sleep 30"
         sh "echo 'Deploying application to Production'"
-        deploy adapters: [tomcat9(credentialsId: 'TomcatCredentials', path: '', url: 'http://35.182.62.144:8080/')], contextPath: null, war: 'target/*war' 
+        deploy adapters: [tomcat9(credentialsId: 'tomcatcredentials', path: '', url: 'http://99.79.70.63:8080/')], contextPath: null, war: 'target/*war' 
       }     
     }
   }
@@ -62,7 +60,7 @@ Kindly check the Build status for compliance and functionality.
 Regards,
 
 Damian,
-Director, Rella\'s Technovation.''', recipientProviders: [contributor(), developers(), requestor()], subject: 'Build Status', to: 'visawebapp@gmail.com'
+Director, Rella\'s Technovation.''', recipientProviders: [contributor(), developers(), requestor()], subject: 'Build Status', to: 'paroyal007@gmail.com'
     }
     success{
       emailext body: '''Hello Team,
@@ -73,7 +71,7 @@ Triple bonus and pay raise for every employee effective immediately.
 Regards,
 
 Bubba,
-CFO, Rella\'s Technovation.''', recipientProviders: [contributor(), developers(), requestor()], subject: 'Success', to: 'visawebapp@gmail.com'
+CFO, Rella\'s Technovation.''', recipientProviders: [contributor(), developers(), requestor()], subject: 'Success', to: 'paroyal007@gmail.com'
     } 
     failure{
       emailext body: '''Hello Dev Team,
@@ -83,8 +81,7 @@ The most recent build failed. Kindly resolve issues and revert.
 Regards,
 
 Dimitrov,
-SMA, Rella\'s Technovation.''', recipientProviders: [contributor(), developers(), requestor()], subject: 'Failure', to: 'visawebapp@gmail.com'
+SMA, Rella\'s Technovation.''', recipientProviders: [contributor(), developers(), requestor()], subject: 'Failure', to: 'paroyal007@gmail.com'
     }
-}
-*/
+}  
 } 
