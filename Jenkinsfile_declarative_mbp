@@ -17,6 +17,8 @@ pipeline {
         sh "mvn clean package"
       }
     }
+    }
+    /*
     stage('3CodeQuality'){
       steps{
         sh "echo 'Perfoming Code Quality Analysis'"
@@ -83,5 +85,6 @@ Regards,
 Dimitrov,
 SMA, Rella\'s Technovation.''', recipientProviders: [contributor(), developers(), requestor()], subject: 'Failure', to: 'paroyal007@gmail.com'
     }
-}  
+}
+*/
 } 
